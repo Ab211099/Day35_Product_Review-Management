@@ -8,21 +8,24 @@
             List<Product_Review> products = new List<Product_Review>();
             try
             {
-                Console.WriteLine("1: Add Product Review To List \n2.To display the list \n3: Exit");
+                Console.WriteLine("1: Add Product Review To List \n2.To display the list \n3.Retrive top three rating \n4: Exit");
                 Console.Write("Choose the option from above : ");
                 int option = Convert.ToInt32(Console.ReadLine());
                 bool flag = true;
                 switch (option)
                 {
                     case 1:
-                        products = AddValues.AddProductReviewToList();
+                        products = AddValues.AddProductReviewToList(products);
                         break;
                     case 2:
-                        products = AddValues.AddProductReviewToList();
+                        products = AddValues.AddProductReviewToList(products);
                         AddValues.IterateOverList(products);
                         break;
-
                     case 3:
+                        
+                        AddValues.RetrieveTopThreeRating(products);
+                        break;
+                    case 4:
                         flag = false;
                         break;
                     default:

@@ -8,9 +8,9 @@ namespace Day35_ProductReviewManagement
 {
     public class AddValues
     {
-        public static List<Product_Review> AddProductReviewToList()
+        public static List<Product_Review> AddProductReviewToList(List<Product_Review> products)
         {
-            List<Product_Review> products = new List<Product_Review>();
+            //List<Product_Review> products = new List<Product_Review>();
             try
             {
                 
@@ -62,7 +62,14 @@ namespace Day35_ProductReviewManagement
                     Console.WriteLine("No Products Review Added In The List.....");
           
         }
-
+        public static int RetrieveTopThreeRating(List<Product_Review> products)
+        {
+            AddProductReviewToList(products);
+            Console.WriteLine("\nRetrieving Top Three Records Based On Rating");
+            var res = (from product in products orderby product.Rating descending select product).Take(3).ToList();
+            IterateOverList(res);
+            return res.Count;
+        }
 
     }
 }
