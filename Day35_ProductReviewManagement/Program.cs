@@ -8,7 +8,7 @@
             List<Product_Review> products = new List<Product_Review>();
             try
             {
-                Console.WriteLine("1: Add Product Review To List \n2.To display the list \n3.Retrive top three rating\n4.TO display the data baased on rating and product ID \n5: Exit");
+                Console.WriteLine("1: Add Product Review To List \n2.To display the list \n3.Retrive top three rating\n4.TO display the data baased on rating and product ID \n 5: To retrive count of review presenr for each productID \n6: Exit");
                 Console.Write("Choose the option from above : ");
                 int option = Convert.ToInt32(Console.ReadLine());
                 bool flag = true;
@@ -30,6 +30,9 @@
                         AddValues.RetrieveRecordsBasedOnRatingAndProductId(products);
                         break;
                     case 5:
+                        AddValues.CountingProductId(products);
+                        break;
+                    case 6:
                         flag = false;
                         break;
                     default:

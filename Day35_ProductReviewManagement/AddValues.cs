@@ -78,6 +78,20 @@ namespace Day35_ProductReviewManagement
             IterateOverList(resProductList);
             return resProductList;
         }
+        public static string CountingProductId(List<Product_Review> products)
+        {
+            string res = null;
+            AddProductReviewToList(products);
+            var data = products.GroupBy(x => x.ProductId).Select(a => new { ProductId = a.Key, count = a.Count() });
+            Console.WriteLine(data);
+            foreach (var element in data)
+            {
+                Console.WriteLine("ProductId:{0} Count:{1} " , element.ProductId, element.count );
+                res += element.ProductId + " " + element.count + " ";
+                Console.WriteLine(res);
+            }
+            return res;
+        }
 
     }
 }
