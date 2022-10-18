@@ -70,6 +70,14 @@ namespace Day35_ProductReviewManagement
             IterateOverList(res);
             return res.Count;
         }
+        public static List<Product_Review> RetrieveRecordsBasedOnRatingAndProductId(List<Product_Review> products)
+        {
+            AddProductReviewToList(products);
+            var resProductList = (from product in products where (product.ProductId == 1 || product.ProductId == 4 || product.ProductId == 9) && product.Rating > 3 select product).ToList();
+            Console.WriteLine("\nDisplauy the records based on Rating And ProductId");
+            IterateOverList(resProductList);
+            return resProductList;
+        }
 
     }
 }
